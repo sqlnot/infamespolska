@@ -12,7 +12,7 @@ function showLoadingScreen(duration = 3000) {
             loadingScreen.style.display = 'none';  
             document.documentElement.style.display = 'block'; 
         }, 1000); 
-    }, duration); i
+    }, duration); 
 }
 
 
@@ -142,7 +142,7 @@ function openStream(username) {
     const iframe = document.querySelector('#streamViewer iframe');
     const chatIframe = document.querySelector('#chatViewer iframe');
 
-    iframe.src = `https://player.twitch.tv/?channel=${username}&parent=infamespl.live&autoplay=true&allowfullscreen=true` ;
+    iframe.src = `https://player.twitch.tv/?channel=${username}&parent=infamespl.live&allowfullscreen=true&autoplay=true` ;
     chatIframe.src = `https://www.twitch.tv/embed/${username}/chat?parent=infamespl.live&darkpopout`;
 }
 

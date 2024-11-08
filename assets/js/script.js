@@ -158,15 +158,16 @@ function toggleSidebar() {
 
     if (isCollapsed) {
         mainContent.style.width = 'calc(100% - 80px)';
-        streamViewer.style.width = '80%';
+        streamViewer.style.width = '78%';
         chatViewer.style.width = '20%';
         button.textContent = '➡';
     } else {
         mainContent.style.width = 'calc(100% - 200px)';
-        streamViewer.style.width = '80%';
+        streamViewer.style.width = '78%';
         chatViewer.style.width = '20%';
         button.textContent = '⬅';
     }
 }
 
 getStreams();
+

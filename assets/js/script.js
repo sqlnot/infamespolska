@@ -1,3 +1,39 @@
+// Zaktualizowana funkcja showLoadingScreen z fadeOut
+function showLoadingScreen(duration = 3000) {
+    const loadingScreen = document.getElementById('loading-screen');
+    
+    // Zmiana czasu trwania animacji spinnera
+    const spinner = document.querySelector('.spinner');
+    spinner.style.animationDuration = `${duration / 1000}s`;
+
+    // Ukrywanie ekranu ładowania po określonym czasie
+    setTimeout(() => {
+        loadingScreen.classList.add('hide');  // Zastosuj animację fadeOut
+    }, duration); // Zniknięcie ekranu po czasie trwania animacji
+}
+
+// Pokaż ekran ładowania na załadowanie strony
+window.onload = () => {
+    // Pokaż ekran ładowania
+    const loadingScreen = document.getElementById('loading-screen');
+    loadingScreen.classList.add('show');  // Dodaj klasę, aby pokazać ekran ładowania
+
+    // Zmień widoczność logo i spinnera
+    const logo = document.querySelector('.logo-container');
+    const spinner = document.querySelector('.spinner-container');
+
+    // Logo pokazuje się od razu
+    logo.style.visibility = 'visible';
+
+    // Spinner pokazuje się po opóźnieniu
+    setTimeout(() => {
+        spinner.style.visibility = 'visible';
+    }, 500); // Spinner pojawia się po 0.5 sekundy
+
+    // Po zakończeniu ładowania, ekran zniknie
+    showLoadingScreen(5300); // Ekran zniknie po 3 sekundach
+};
+
 const clientId = 'ffo830okw5x9tcbt51c2wpjhr80jnn';
 const oauthToken = 'sh4ly28ldx12keykw0iedo0y5ellu9';
 const gameId = '32982';

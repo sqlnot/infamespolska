@@ -169,4 +169,6 @@ function toggleSidebar() {
 }
 
 getStreams();
-
+setInterval(() => {
+    getStreams(); 
+}, 60000);

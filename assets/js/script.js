@@ -142,8 +142,8 @@ function openStream(username) {
     const iframe = document.querySelector('#streamViewer iframe');
     const chatIframe = document.querySelector('#chatViewer iframe');
 
-    iframe.src = `https://player.twitch.tv/?channel=${username}&parent=sqlnot.github.io&autoplay=true`;
-    chatIframe.src = `https://www.twitch.tv/embed/${username}/chat?parent=sqlnot.github.io&darkpopout`;
+    iframe.src = `https://player.twitch.tv/?channel=${username}&parent=https://infamespl.live&autoplay=true`;
+    chatIframe.src = `https://www.twitch.tv/embed/${username}/chat?parent=https://infamespl.live&darkpopout`;
 }
 
 function toggleSidebar() {

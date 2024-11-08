@@ -142,9 +142,29 @@ function openStream(username) {
     const iframe = document.querySelector('#streamViewer iframe');
     const chatIframe = document.querySelector('#chatViewer iframe');
 
-    iframe.src = `https://player.twitch.tv/?channel=${username}&parent=infamespl.live&autoplay=true&muted=false` ;
+    iframe.src = `https://player.twitch.tv/?channel=${username}&parent=infamespl.live&autoplay=true` ;
     chatIframe.src = `https://www.twitch.tv/embed/${username}/chat?parent=infamespl.live&allowfullscreen=true&darkpopout`;
 }
+    // Tworzymy przycisk do pełnoekranowego otwarcia streama
+    const fullscreenButton = document.createElement('button');
+    fullscreenButton.textContent = "Pełny ekran";
+    fullscreenButton.className = "fullscreen-button";
+    document.getElementById('streamViewer').appendChild(fullscreenButton);
+
+    // Funkcja przełączająca stream na pełny ekran
+    fullscreenButton.onclick = () => {
+        const player = iframe; // Przechodzimy do pełnoekranowego trybu na iframe
+        if (player.requestFullscreen) {
+            player.requestFullscreen(); // Włączamy pełny ekran
+        } else if (player.mozRequestFullScreen) { // Firefox
+            player.mozRequestFullScreen();
+        } else if (player.webkitRequestFullscreen) { // Chrome, Safari, Opera
+            player.webkitRequestFullscreen();
+        } else if (player.msRequestFullscreen) { // Internet Explorer
+            player.msRequestFullscreen();
+        }
+    };
+
 
 function toggleSidebar() {
     const sidebar = document.getElementById('sidebar');

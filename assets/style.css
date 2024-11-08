@@ -53,9 +53,7 @@ h1 {
     font-family: Montserrat;
     margin-top: 15px;
     border: 2px solid #CB203C;
-    box-shadow: 
-        0 0 7px #CB203C, 
-        inset 0 0 7px #CB203C; 
+    box-shadow: 0 0 7px #CB203C, inset 0 0 7px #CB203C; 
     background-color: #1d1d1d;
     border-radius: 8px;
     padding: 8px;
@@ -138,22 +136,26 @@ h1 {
 }
 
 #streamViewer {
+    margin-top: 25px;
+    margin-left: 20px;
     width: 78%;
     height: 0;
     padding-bottom: 44.44%;
     position: relative;
     border: none;
-    border-radius: 10px;
+    border-radius: 15px;
 }
 
 #streamViewer iframe {
     position: absolute;
     width: 100%;
     height: 100%;
-    border-radius: 10px;
+    border-radius: 15px;
 }
 
 #chatViewer {
+    margin-top: 25px;
+    margin-right: 20px;
     width: 20%;
     height: 0;
     padding-bottom: 44.44%;

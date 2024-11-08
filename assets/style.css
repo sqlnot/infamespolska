@@ -231,26 +231,6 @@ box-sizing: border-box;
     width: 35px; /* Ustawia szerokość obrazków */
     height: 35px; /* Ustawia wysokość obrazków */
 }
-/* Animacja wchodzenia ekranu ładowania */
-@keyframes fadeIn {
-    0% {
-        opacity: 0;
-    }
-    100% {
-        opacity: 1;
-    }
-}
-
-/* Animacja wychodzenia ekranu ładowania */
-@keyframes fadeOut {
-    0% {
-        opacity: 1;
-    }
-    100% {
-        opacity: 0;
-    }
-}
-
 /* Stylowanie ekranu ładowania */
 .loading-screen {
     position: fixed;
@@ -264,9 +244,8 @@ box-sizing: border-box;
     justify-content: center;
     align-items: center;
     z-index: 9999;
-    visibility: hidden;  /* Początkowo ukryte */
-    opacity: 0;  /* Początkowo niewidoczne */
-    transition: visibility 0s, opacity 0.5s ease;
+    opacity: 1;
+    transition: opacity 1s ease-out; /* Animacja zanikania */
 }
 
 /* Stylowanie spinnera */
@@ -276,7 +255,7 @@ box-sizing: border-box;
     border-radius: 50%;
     width: 50px;
     height: 50px;
-    animation: spin 1.5s linear infinite;
+    animation: spin 0.75s linear infinite;
 }
 
 /* Animacja obrotu spinnera */
@@ -285,16 +264,8 @@ box-sizing: border-box;
     100% { transform: rotate(360deg); }
 }
 
-/* Po załadowaniu strony, ekran ładowania staje się widoczny */
-.loading-screen.show {
-    visibility: visible;
-    opacity: 1;
-    animation: fadeIn 1s forwards; /* Animacja wejścia */
-}
-
-/* Po zakończeniu ładowania, ekran ładowania znika */
-.loading-screen.hide {
-    visibility: visible;
-    opacity: 0;
-    animation: fadeOut 1s forwards; /* Animacja wyjścia */
+/* Animacja fade-out ekranu ładowania */
+@keyframes fadeOut {
+    0% { opacity: 1; }
+    100% { opacity: 0; }
 }

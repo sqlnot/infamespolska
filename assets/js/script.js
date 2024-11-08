@@ -34,7 +34,7 @@ const gameId = '32982';
 
 let isLoading = false;
 let hasMoreStreams = true;
-let currentStreams = new Set(); // Zbiór do przechowywania aktywnych streamów (unikalne nazwy użytkowników)
+let currentStreams = new Set(); 
 
 function truncateTitle(title) {
     if (title.length > 100) {
@@ -74,7 +74,6 @@ async function getStreams(cursor = '') {
                 return /infamespl|infames polska|infames pl|infames/.test(title);
             });
 
-            // Dodanie nowych streamów
             const sidebar = document.getElementById('sidebar');
             for (const stream of filteredStreams) {
                 if (!currentStreams.has(stream.user_name)) {
@@ -94,18 +93,18 @@ async function getStreams(cursor = '') {
                         </div>
                     `;
                     sidebar.appendChild(streamSidebarItem);
-                    currentStreams.add(stream.user_name); // Dodaj nowego streamera do zbioru
+                    currentStreams.add(stream.user_name); 
                 }
             }
 
-            // Usunięcie streamów, które przestały streamować
+           
             const sidebarItems = sidebar.querySelectorAll('.stream-sidebar-item');
             for (const sidebarItem of sidebarItems) {
                 const username = sidebarItem.querySelector('strong').textContent;
                 const isActiveStream = filteredStreams.some(stream => stream.user_name === username);
                 if (!isActiveStream) {
                     sidebarItem.remove();
-                    currentStreams.delete(username); // Usuń streamera, który przestał streamować
+                    currentStreams.delete(username); 
                 }
             }
 
@@ -170,10 +169,8 @@ function toggleSidebar() {
     }
 }
 
-// Wywołanie funkcji do załadowania streamów na początku
 getStreams();
 
-// Dodaj odświeżanie co minutę
 setInterval(() => {
-    getStreams(); // Wywołaj funkcję getStreams co minutę
-}, 60000); // 60000 ms = 1 minuta
+    getStreams();
+}, 30000); 

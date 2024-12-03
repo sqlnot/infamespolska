@@ -71,7 +71,7 @@ async function getStreams(cursor = '') {
         if (data.data && data.data.length > 0) {
             const filteredStreams = data.data.filter(stream => {
                 const title = stream.title.toLowerCase();
-                return /infamespl|infames polska|infames pl|infamesrp|infames/.test(title);
+                return /[infamespl]|[infames polska]|[infames pl]|[infamesrp]|[infames]/.test(title);
             });
 
             const sidebar = document.getElementById('sidebar');
